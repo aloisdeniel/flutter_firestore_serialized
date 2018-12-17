@@ -1,0 +1,14 @@
+name: firestore_serialized
+description: Thin layer on top of Firestore to serialize/deserialize document's data.
+version: 0.1.0
+author: Aloïs Deniel<alois.deniel@gmail.com>
+homepage: https://github.com/aloisdeniel/flutter_firestore_serialized
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  cloud_firestore: ^0.8.2+3
+  meta: ^1.1.6
+  flutter:
+    sdk: flutter 
