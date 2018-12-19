@@ -54,8 +54,7 @@ class TypedDocumentReference<T> {
   /// If no document exists, the read will return null.
   Future<TypedDocumentSnapshot<T>> get() async {
     final snapshot = await this.reference.get();
-    final value = serializer.deserialize(snapshot.data);
-    return TypedDocumentSnapshot<T>(snapshot: snapshot, value: value);
+    return TypedDocumentSnapshot<T>(snapshot: snapshot, serializer: serializer);
   }
 
   /// Deletes the document referred to by this [TypedDocumentReference].
@@ -74,6 +73,6 @@ class TypedDocumentReference<T> {
   /// Notifies of documents at this location
   Stream<TypedDocumentSnapshot<T>> snapshots() {
     return this.reference.snapshots().map((s) => TypedDocumentSnapshot(
-        snapshot: s, value: serializer.deserialize(s.data)));
+        snapshot: s, serializer: serializer));
   }
 }

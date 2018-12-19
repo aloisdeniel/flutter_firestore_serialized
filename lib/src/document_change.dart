@@ -8,7 +8,7 @@ class TypedDocumentChange<T> {
   TypedDocumentChange({this.change, @required Serializer<T> serializer})
       : this.document = TypedDocumentSnapshot<T>(
             snapshot: change.document,
-            value: serializer.deserialize(change.document.data));
+            serializer: serializer);
 
   final DocumentChange change;
 

@@ -9,7 +9,7 @@ class TypedQuerySnapshot<T> {
   TypedQuerySnapshot({@required this.snapshot, Serializer<T> serializer})
       : documents = snapshot.documents
             .map((s) => TypedDocumentSnapshot<T>(
-                snapshot: s, value: serializer.deserialize(s.data)))
+                snapshot: s, serializer: serializer))
             .toList(),
         documentChanges = snapshot.documentChanges
             .map((c) =>
