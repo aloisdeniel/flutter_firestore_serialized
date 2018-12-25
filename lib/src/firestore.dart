@@ -36,7 +36,7 @@ class TypedFirestore {
 
   /// Registers a serializer for [T] from [deserialize] and [serialize] methods.
   void register<T>(Deserialize<T> deserialize, Serialize<T> serialize) {
-    this.registerSerializer(Serializer<T>(this, deserialize, serialize));
+    this.registerSerializer<T>(Serializer<T>(this, deserialize, serialize));
   }
 
   /// Gets the serializer for [T].
