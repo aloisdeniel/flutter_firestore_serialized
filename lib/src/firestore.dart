@@ -21,13 +21,13 @@ class TypedFirestore {
   TypedCollectionReference<T> collection<T>(String path,
           {Serializer<T> serializer}) =>
       TypedCollectionReference<T>(
-          reference: this.firestore.collection(path), serializer: serializer);
+          reference: this.firestore.collection(path), serializer: serializer ?? this.serializer<T>());
 
   /// Gets a [TypedDocumentReference] for the specified Firestore path.
   TypedDocumentReference<T> document<T>(String path,
           {Serializer<T> serializer}) =>
       TypedDocumentReference<T>(
-          reference: this.firestore.document(path), serializer: serializer);
+          reference: this.firestore.document(path), serializer: serializer ?? this.serializer<T>());
 
   /// Registers a serializer for [T].
   void registerSerializer<T>(Serializer<T> serializer) {
